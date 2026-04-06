@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS sensor_db;
+
+USE sensor_db;
+
+CREATE TABLE IF NOT EXISTS sensor_data (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    temperature FLOAT,
+    humidity FLOAT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
