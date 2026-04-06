@@ -49,3 +49,72 @@ sudo apt install podman -y
 # Install podman-compose (Python tool)
 pip install podman-compose
 ```
+### 4. Verify Installation
+```bash
+podman --version
+podman-compose --version
+```
+## 🐧 Arch Linux
+### 1. Update System
+```bash
+sudo pacman -Syu
+```
+### 2. Install Podman
+```bash
+sudo pacman -S podman
+```
+### 3. Install Podman Compose
+```bash
+sudo pacman -S python python-pip
+pip install podman-compose
+
+⚠️ If podman-compose is not available or has issues, you can also use:
+pip install --user podman-compose
+```
+### 4. Enable Podman Service (Rootless Setup)
+```bash
+podman system migrate
+```
+### 5. Verify Installation
+```bash
+podman --version
+podman-compose --version
+```
+## 🟣 Fedora
+### 1. Update System
+```bash
+sudo dnf update -y
+```
+### 2. Install Podman
+```bash
+sudo dnf install podman -y
+```
+### 3. Install Podman Compose
+```bash
+sudo dnf install python3 python3-pip -y
+pip3 install podman-compose
+```
+### 4. Enable Podman (Optional but Recommended)
+```bash
+systemctl --user enable --now podman.socket
+```
+### 5. Verify Installation
+```bash 
+podman --version
+podman-compose --version
+```
+🚀 Next Steps (All Systems)
+
+After installation, you can run the project:
+```bash
+podman-compose up
+```
+Or in detached mode:
+```bash
+podman-compose up -d
+```
+
+Then access:
+
+🌐 Frontend Dashboard → http://localhost:3000 (or configured port)
+🔌 Backend API → http://localhost:5000
