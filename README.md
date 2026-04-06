@@ -21,13 +21,31 @@ This project demonstrates a modular system consisting of:
 ## 🪟 Windows
 
 ### Option 1: Using WSL (Recommended)
-1. Install WSL2:
+## 🪟 Windows (Using WSL2)
+
+### 1. Install WSL2
+
+Open **PowerShell as Administrator** and run:
+
 ```powershell
-    ```wsl --install```
+wsl --install
 ```
-2.Install a Linux distro (Ubuntu recommended)
-3.Inside WSL:
-``` sudo apt update```
-``` sudo apt install podman -y```
-```pip install podman-compose```
+
+### 2. Install a Linux Distribution
+
+After WSL installs, open the **Microsoft Store**, search for **Ubuntu**, and install it (Ubuntu 22.04 LTS recommended).
+
+### 3. Inside Ubuntu (WSL)
+
+Open Ubuntu and run these commands one by one:
+
+```bash
+# Update package lists
+sudo apt update
+
+# Install Podman
+sudo apt install podman -y
+
+# Install podman-compose (Python tool)
+pip install podman-compose
 ```
