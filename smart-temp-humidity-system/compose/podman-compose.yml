@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  db:
+    image: mariadb:10.6
+    container_name: temp_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sensor_db
+    volumes:
+      - ../containers/db/data:/var/lib/mysql
+      - ../containers/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: ../containers/backend
+    container_name: temp_backend
+    env_file:
+      - ../containers/backend/.env
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+
+  frontend:
+    build: ../containers/frontend
+    container_name: temp_frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
